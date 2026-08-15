@@ -1,0 +1,95 @@
+// RED LINE — Technical Services — shared behaviour
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // mobile nav toggle
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      nav.classList.toggle('open');
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { nav.classList.remove('open'); });
+    });
+  }
+
+  // scroll reveal (with fallback so content never stays permanently hidden)
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  var showEl = function (el) {
+    el.style.opacity = 1;
+    el.style.transform = 'translateY(0)';
+  };
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if ('IntersectionObserver' in window && revealEls.length && !prefersReduced) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          showEl(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(function (el) {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      io.observe(el);
+    });
+
+    // safety net: force everything visible after 2.5s no matter what
+    // (covers browsers/environments where the observer never fires,
+    // e.g. elements already in the initial viewport in some engines)
+    window.setTimeout(function () {
+      revealEls.forEach(showEl);
+    }, 2500);
+  } else {
+    // no IntersectionObserver support or reduced-motion preference: just show everything
+    revealEls.forEach(showEl);
+  }
+
+  // quote request form -> mailto (static site, no backend)
+  var form = document.getElementById('quoteForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = form.name.value.trim();
+      var phone = form.phone.value.trim();
+      var email = form.email.value.trim();
+      var status = document.getElementById('formStatus');
+
+      if (!name || !phone) {
+        status.style.display = 'block';
+        status.style.color = '#B21F2B';
+        status.textContent = 'Please fill in your name and phone number so we can reach you.';
+        return;
+      }
+
+      var services = Array.from(form.querySelectorAll('input[name="service"]:checked'))
+        .map(function (c) { return c.value; }).join(', ') || 'Not specified';
+
+      var body =
+        'New quote request from redline site%0D%0A%0D%0A' +
+        'Name: ' + encodeURIComponent(name) + '%0D%0A' +
+        'Company: ' + encodeURIComponent(form.company.value.trim()) + '%0D%0A' +
+        'Phone: ' + encodeURIComponent(phone) + '%0D%0A' +
+        'Email: ' + encodeURIComponent(email) + '%0D%0A' +
+        'Emirate: ' + encodeURIComponent(form.emirate.value) + '%0D%0A' +
+        'Property type: ' + encodeURIComponent(form.property.value.trim()) + '%0D%0A' +
+        'Services needed: ' + encodeURIComponent(services) + '%0D%0A' +
+        'Message: ' + encodeURIComponent(form.message.value.trim());
+
+      var mailto = 'mailto:Redline.aj@outlook.com?subject=' +
+        encodeURIComponent('Quote request — ' + name) + '&body=' + body;
+
+      window.location.href = mailto;
+
+      status.style.display = 'block';
+      status.style.color = '#3E7A44';
+      status.textContent = 'Opening your email app with the request pre-filled — hit send to reach us.';
+    });
+  }
+
+});
