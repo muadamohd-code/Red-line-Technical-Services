@@ -50,6 +50,7 @@
 </header>
 
 <div class="page-head">
+  <div class="frame-accent-top"></div>
   <div class="container">
     <div class="crumb">Home <span>/</span> Contact</div>
     <h1>Request a Quote</h1>
@@ -83,7 +84,20 @@
           <span>Sat–Thu, 8:00–18:00<br>Emergency service 24/7</span>
         </div>
 
-        <div class="loop-divider" style="margin:36px 0 20px;"><span>Status</span><div class="ln" style="background:repeating-linear-gradient(90deg,#5a4f40 0 6px, transparent 6px 12px);"></div></div>
+        <!-- Red Line Fire Devices Fix location map -->
+        <div class="map-embed" style="margin-top:28px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.7!2d55.4477!3d25.4133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a6a6a6a6a6b%3A0x1234!2sRed%20Line%20Fire%20Devices%20Fix%20LLC!5e0!3m2!1sen!2sae!4v1724000000001!5m2!1sen!2sae"
+            height="180"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Red Line Fire Devices Fix — Location">
+          </iframe>
+        </div>
+
+        <div class="loop-divider" style="margin:28px 0 20px;"><span>Status</span><div class="ln" style="background:repeating-linear-gradient(90deg,#5a4f40 0 6px, transparent 6px 12px);"></div></div>
         <p style="font-size:13px;color:#a89e8c;">Requests are typically answered within one business day. For active emergencies, call us directly rather than using the form.</p>
       </div>
 
@@ -141,6 +155,23 @@
           <textarea id="message" name="message" placeholder="Number of floors, existing systems, timeline…"></textarea>
         </div>
 
+        <!-- Inquiry location map embed -->
+        <div class="field">
+          <p style="font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);margin-bottom:8px;">Inquiry Location (Service Area)</p>
+          <div class="map-embed" style="border:1px solid var(--line);margin-top:0;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d231999.3!2d55.3!3d25.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a6a6a6a6a6b%3A0x1234!2sDubai%20-%20Sharjah%20-%20Ajman%20UAE!5e0!3m2!1sen!2sae!4v1724000000002!5m2!1sen!2sae"
+              height="200"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Red Line Technical Services — UAE Service Area">
+            </iframe>
+          </div>
+          <p style="font-size:12px;color:var(--grey);margin-top:6px;">Our service area covers Ajman, Sharjah and Dubai.</p>
+        </div>
+
         <button type="submit" class="btn btn-primary btn-block">Send Request</button>
         <p id="formStatus"></p>
         <p class="form-note">This form is connected to Google Forms for submission and styled to match the site theme. Nothing is sent automatically without your form provider setup.</p>
@@ -152,8 +183,11 @@
 <section class="section section-dark">
   <div class="container">
     <div class="eyebrow" style="color:var(--gold);">Find Us</div>
-    <h2 style="color:#fff;font-size:clamp(22px,2.8vw,32px);margin-bottom:24px;">Service Area — Ajman, UAE</h2>
-    <div style="border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.08);line-height:0;">
+    <div class="ruled-head" style="margin-bottom:24px;">
+      <h2 style="color:#fff;font-size:clamp(22px,2.8vw,32px);">Service Area — Ajman, UAE</h2>
+      <div class="rule" style="background:repeating-linear-gradient(90deg,rgba(220,210,190,.2) 0 8px, transparent 8px 16px);"></div>
+    </div>
+    <div style="border-radius:2px;overflow:hidden;border:1px solid rgba(255,255,255,.08);line-height:0;">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115983.61765882!2d55.42992!3d25.405231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5a6a6a6a6a6b%3A0x3e5f5a6a6a6a6a6b!2sAjman%2C%20United%20Arab%20Emirates!5e0!3m2!1sen!2sae!4v1724000000000!5m2!1sen!2sae"
         width="100%"
