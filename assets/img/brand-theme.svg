@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650">
+  <defs>
+    <linearGradient id="darkPanel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0d0f"/>
+      <stop offset="1" stop-color="#4b4b4f"/>
+    </linearGradient>
+    <linearGradient id="softFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000000" stop-opacity=".96"/>
+      <stop offset=".55" stop-color="#3f4044" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="pattern" width="132" height="132" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#d5d5d7" stroke-width="3" opacity=".72">
+        <circle cx="36" cy="38" r="19"/>
+        <circle cx="36" cy="38" r="8"/>
+        <path d="M22 100h28M36 86v28"/>
+        <circle cx="96" cy="98" r="19"/>
+        <circle cx="96" cy="98" r="8"/>
+        <path d="M80 24h32M96 10v28"/>
+      </g>
+    </pattern>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="650" fill="#faf9f7"/>
+  <rect x="386" width="814" height="650" fill="url(#pattern)"/>
+
+  <path d="M0 0h348c-29 60-41 138-53 220-16 114-52 209-121 295C120 587 64 625 0 650Z" fill="url(#darkPanel)"/>
+  <path d="M0 0h288c-12 34-19 74-23 122-12 132-45 244-96 332C126 533 68 594 0 650Z" fill="url(#softFade)"/>
+  <path d="M0 650c39-121 94-217 161-294 92-106 160-188 204-356" stroke="#b21f2b" stroke-width="6" fill="none"/>
+  <g opacity=".9" fill="none" stroke="#b21f2b">
+    <path d="M14 0c73 77 126 174 149 291 24 127 13 237-28 359" stroke-width="1.5"/>
+    <path d="M34 0c74 78 126 178 148 299 21 126 9 232-30 351" stroke-width="1.25"/>
+    <path d="M54 0c74 79 125 182 144 307 19 123 5 227-31 343" stroke-width="1.15"/>
+    <path d="M74 0c72 82 121 187 138 315 16 120 1 221-32 335" stroke-width="1.05"/>
+    <path d="M94 0c70 85 115 191 129 323 13 117-3 215-31 327" stroke-width=".95"/>
+  </g>
+
+  <g filter="url(#shadow)" transform="translate(270 82)">
+    <path d="M79 220c20-17 35-42 35-66 0-20-9-34-29-43 6 16 0 33-15 46 3-26-4-50-24-74-22-27-28-61-18-99-28 27-55 69-54 116 1 42 19 71 50 89-29-7-54 3-68 31h123Z" fill="#ff3c1c"/>
+    <path d="M53 206c9-8 16-20 16-33 0-10-4-18-13-24 2 9-1 17-8 24 1-13-3-26-13-40-12-16-15-35-11-58-17 16-32 40-31 68 1 27 13 47 35 60-20-5-37 2-47 21h72Z" fill="#ffffff" opacity=".88"/>
+  </g>
+
+  <g fill="#b21f2b">
+    <rect x="508" y="170" width="598" height="4" opacity=".38"/>
+    <rect x="508" y="515" width="598" height="4" opacity=".24"/>
+  </g>
+
+  <text x="508" y="202" fill="#b21f2b" font-size="112" font-weight="900" font-family="Arial Black, Segoe UI, sans-serif" letter-spacing="2">RED LINE</text>
+  <text x="508" y="276" fill="#231f20" font-size="58" font-weight="700" font-family="Segoe UI, Arial, sans-serif">Fire Devices Fix LLC</text>
+  <text x="1114" y="468" text-anchor="end" fill="#a31919" font-size="140" font-weight="700" font-family="Tahoma, Arial, sans-serif">الخط الأحمر</text>
+  <text x="1114" y="590" text-anchor="end" fill="#231f20" font-size="72" font-weight="500" font-family="Tahoma, Arial, sans-serif">لتركيب أجهزة الإطفاء</text>
+</svg>

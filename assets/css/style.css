@@ -199,6 +199,7 @@ p{ margin:0 0 1em; color:#3a342c; }
   padding:20px;
 }
 .hero-brand img{
+  width:100%;
   height:auto;
   max-height:420px;
   object-fit:contain;
