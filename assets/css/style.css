@@ -510,7 +510,6 @@ p{ margin:0 0 1em; color:#3a342c; }
   height:1px;
   background:repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 16px);
 }
-.ruled-head .rule-solid{ flex:1; height:1px; background:var(--line); }
 
 /* Quote/contact map embed wrapper */
 .map-embed{
@@ -556,7 +555,6 @@ p{ margin:0 0 1em; color:#3a342c; }
   .quote-form, .quote-info{ padding:30px 26px; }
   .footer-grid{ grid-template-columns:1fr; }
   .sector-grid{ grid-template-columns:1fr; }
-  .premium-split{ grid-template-columns:1fr; }
   .diamond-frame img{ clip-path:none; }
-  .ruled-head .rule, .ruled-head .rule-solid{ display:none; }
+  .ruled-head .rule{ display:none; }
 }
