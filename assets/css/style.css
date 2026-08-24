@@ -417,7 +417,7 @@ p{ margin:0 0 1em; color:#3a342c; }
    VISUAL IMAGERY COMPONENTS
    ============================================================ */
 
-/* Three-column image strip (used on about & projects pages) */
+/* Three-column image strip (used across multiple pages) */
 .vis-strip{
   display:grid;
   grid-template-columns:repeat(3,1fr);
