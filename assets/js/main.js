@@ -50,45 +50,32 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(showEl);
   }
 
-  // quote request form -> mailto (static site, no backend)
+  // contact / quote request form -> Google Form embed-style submission target
   var form = document.getElementById('quoteForm');
   if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = form.name.value.trim();
-      var phone = form.phone.value.trim();
-      var email = form.email.value.trim();
-      var status = document.getElementById('formStatus');
+    var formStatus = document.getElementById('formStatus');
+    var googleFormEndpoint = 'https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse';
 
-      if (!name || !phone) {
-        status.style.display = 'block';
-        status.style.color = '#B21F2B';
-        status.textContent = 'Please fill in your name and phone number so we can reach you.';
-        return;
+    form.addEventListener('submit', function () {
+      if (formStatus) {
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#3E7A44';
+        formStatus.textContent = 'Submitting your request…';
       }
+    });
 
-      var services = Array.from(form.querySelectorAll('input[name="service"]:checked'))
-        .map(function (c) { return c.value; }).join(', ') || 'Not specified';
-
-      var body =
-        'New quote request from redline site%0D%0A%0D%0A' +
-        'Name: ' + encodeURIComponent(name) + '%0D%0A' +
-        'Company: ' + encodeURIComponent(form.company.value.trim()) + '%0D%0A' +
-        'Phone: ' + encodeURIComponent(phone) + '%0D%0A' +
-        'Email: ' + encodeURIComponent(email) + '%0D%0A' +
-        'Emirate: ' + encodeURIComponent(form.emirate.value) + '%0D%0A' +
-        'Property type: ' + encodeURIComponent(form.property.value.trim()) + '%0D%0A' +
-        'Services needed: ' + encodeURIComponent(services) + '%0D%0A' +
-        'Message: ' + encodeURIComponent(form.message.value.trim());
-
-      var mailto = 'mailto:Redline.aj@outlook.com?subject=' +
-        encodeURIComponent('Quote request — ' + name) + '&body=' + body;
-
-      window.location.href = mailto;
-
-      status.style.display = 'block';
-      status.style.color = '#3E7A44';
-      status.textContent = 'Opening your email app with the request pre-filled — hit send to reach us.';
+    form.action = googleFormEndpoint;
+    form.method = 'POST';
+    form.target = 'hiddenQuoteFrame';
+    form.addEventListener('submit', function () {
+      window.setTimeout(function () {
+        if (formStatus) {
+          formStatus.style.display = 'block';
+          formStatus.style.color = '#3E7A44';
+          formStatus.textContent = 'Your request has been sent. We will get back to you shortly.';
+        }
+        form.reset();
+      }, 900);
     });
   }
 
