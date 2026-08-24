@@ -132,12 +132,8 @@ p{ margin:0 0 1em; color:#3a342c; }
   padding:14px 28px;
   max-width:var(--container); margin:0 auto;
 }
-.brand{ display:flex; align-items:center; gap:12px; }
-.brand img{ height:40px; width:auto; }
-.brand-word{ font-family:var(--display); line-height:1; }
-.brand-word .en{ display:block; font-size:20px; font-weight:600; letter-spacing:.04em; }
-.brand-word .en b{ color:var(--red); }
-.brand-word .ar{ display:block; font-size:12px; font-family:var(--body); color:var(--grey); letter-spacing:0; text-transform:none; margin-top:2px; }
+.brand{ display:flex; align-items:center; flex:0 0 auto; }
+.brand img{ width:min(240px, 24vw); min-width:180px; height:auto; }
 
 .main-nav ul{ display:flex; gap:30px; }
 .main-nav a{
@@ -198,6 +194,19 @@ p{ margin:0 0 1em; color:#3a342c; }
   padding:9px 14px;
 }
 .hero-figure-wrap{ position:relative; }
+.hero-brand{
+  background:linear-gradient(180deg, #ffffff, #f1ebe0);
+  padding:20px;
+}
+.hero-brand img{
+  height:auto;
+  max-height:420px;
+  object-fit:contain;
+}
+.hero-brand .hero-tag{
+  top:26px;
+  bottom:auto;
+}
 
 /* stat strip */
 .stat-strip{
@@ -354,9 +363,8 @@ p{ margin:0 0 1em; color:#3a342c; }
 }
 .footer-grid li{ margin-bottom:10px; font-size:14px; }
 .footer-grid a:hover{ color:var(--gold); }
-.footer-brand{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
-.footer-brand img{ height:32px; }
-.footer-brand span{ font-family:var(--display); font-size:18px; color:#fff; }
+.footer-brand{ margin-bottom:18px; }
+.footer-brand img{ width:min(260px, 100%); height:auto; }
 .footer-bottom{
   border-top:1px solid #33291f; margin-top:44px; padding-top:22px;
   display:flex; justify-content:space-between; font-size:12.5px; color:#8a8071; flex-wrap:wrap; gap:10px;
@@ -375,6 +383,7 @@ p{ margin:0 0 1em; color:#3a342c; }
    RESPONSIVE
    ============================================================ */
 @media (max-width:980px){
+  .brand img{ width:190px; min-width:0; }
   .hero-grid{ grid-template-columns:1fr; }
   .stat-strip{ grid-template-columns:repeat(2,1fr); }
   .stat-strip div:nth-child(3){ border-left:none; }
@@ -387,6 +396,7 @@ p{ margin:0 0 1em; color:#3a342c; }
   .split-two > div:first-child{ border-right:none; border-bottom:1px solid var(--line); }
 }
 @media (max-width:760px){
+  .brand img{ width:150px; }
   .main-nav{ position:fixed; inset:0 0 0 30%; top:73px; background:var(--paper); border-left:1px solid var(--line); transform:translateX(100%); transition:transform .25s ease; padding:30px; z-index:40; }
   .main-nav.open{ transform:translateX(0); }
   .main-nav ul{ flex-direction:column; gap:22px; }
