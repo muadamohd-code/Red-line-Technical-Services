@@ -39,43 +39,25 @@ document.addEventListener('DOMContentLoaded', function () {
       io.observe(el);
     });
 
-    // safety net: force everything visible after 2.5s no matter what
-    // (covers browsers/environments where the observer never fires,
-    // e.g. elements already in the initial viewport in some engines)
     window.setTimeout(function () {
       revealEls.forEach(showEl);
     }, 2500);
   } else {
-    // no IntersectionObserver support or reduced-motion preference: just show everything
     revealEls.forEach(showEl);
   }
 
-  // contact / quote request form -> Google Form embed-style submission target
+  // contact / quote request form
   var form = document.getElementById('quoteForm');
   if (form) {
     var formStatus = document.getElementById('formStatus');
-    var googleFormEndpoint = 'https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/formResponse';
 
-    form.addEventListener('submit', function () {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
       if (formStatus) {
         formStatus.style.display = 'block';
         formStatus.style.color = '#3E7A44';
-        formStatus.textContent = 'Submitting your request…';
+        formStatus.textContent = 'Your request is ready. Connect the form to your Google Form endpoint to activate submissions.';
       }
-    });
-
-    form.action = googleFormEndpoint;
-    form.method = 'POST';
-    form.target = 'hiddenQuoteFrame';
-    form.addEventListener('submit', function () {
-      window.setTimeout(function () {
-        if (formStatus) {
-          formStatus.style.display = 'block';
-          formStatus.style.color = '#3E7A44';
-          formStatus.textContent = 'Your request has been sent. We will get back to you shortly.';
-        }
-        form.reset();
-      }, 900);
     });
   }
 
