@@ -137,7 +137,7 @@ p{ margin:0 0 1em; color:var(--text-muted); }
   background-position:center;
   background-repeat:no-repeat;
   background-size:cover;
-  border-bottom:1px solid var(--line);
+  box-shadow:inset 0 -1px 0 var(--line);
 }
 /* note: intentionally no backdrop-filter here — it creates a new
    containing block for fixed-position descendants (the mobile nav
