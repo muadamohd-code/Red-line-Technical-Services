@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="darkPanel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0d0f"/>
+      <stop offset="1" stop-color="#4b4b4f"/>
+    </linearGradient>
+    <linearGradient id="softFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000000" stop-opacity=".96"/>
+      <stop offset=".55" stop-color="#3f4044" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="pattern" width="132" height="132" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#d5d5d7" stroke-width="3" opacity=".72">
+        <circle cx="36" cy="38" r="19"/>
+        <circle cx="36" cy="38" r="8"/>
+        <path d="M22 100h28M36 86v28"/>
+        <circle cx="96" cy="98" r="19"/>
+        <circle cx="96" cy="98" r="8"/>
+        <path d="M80 24h32M96 10v28"/>
+      </g>
+    </pattern>
+  </defs>
+
+  <!-- Left dark panel -->
+  <path d="M0 0h348c-29 60-41 138-53 220-16 114-52 209-121 295C120 587 64 625 0 650Z" fill="url(#darkPanel)"/>
+  
+  <!-- Soft fade overlay -->
+  <path d="M0 0h288c-12 34-19 74-23 122-12 132-45 244-96 332C126 533 68 594 0 650Z" fill="url(#softFade)"/>
+  
+  <!-- Pattern overlay on right -->
+  <rect x="386" width="814" height="650" fill="url(#pattern)"/>
+  
+  <!-- Flowing curves -->
+  <path d="M0 0h348c-29 60-41 138-53 220-16 114-52 209-121 295C120 587 64 625 0 650Z" stroke="#b21f2b" stroke-width="6" fill="none"/>
+  
+  <!-- Accent flow lines -->
+  <g opacity=".9" fill="none" stroke="#b21f2b">
+    <path d="M14 0c73 77 126 174 149 291 24 127 13 237-28 359" stroke-width="1.5"/>
+    <path d="M34 0c74 78 126 178 148 299 21 126 9 232-30 351" stroke-width="1.25"/>
+    <path d="M54 0c74 79 125 182 144 307 19 123 5 227-31 343" stroke-width="1.15"/>
+    <path d="M74 0c72 82 121 187 138 315 16 120 1 221-32 335" stroke-width="1.05"/>
+    <path d="M94 0c70 85 115 191 129 323 13 117-3 215-31 327" stroke-width=".95"/>
+  </g>
+</svg>
