@@ -143,14 +143,14 @@ p{ margin:0 0 1em; color:var(--text-muted); }
    containing block for fixed-position descendants (the mobile nav
    panel), which breaks its full-height positioning on small screens */
 .nav-row{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 28px;
-  max-width:var(--container); margin:0 auto;
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center;
+  gap:28px; width:100%; padding:14px 28px 14px 0;
 }
 .brand{
   display:flex; align-items:center; flex:0 0 auto;
-  margin-left:calc(((100vw - min(100vw, var(--container))) / -2) - 28px);
+  grid-column:1; grid-row:1;
 }
+.main-nav{ grid-column:1 / -1; grid-row:1; justify-self:center; }
 .brand img{ width:min(240px, 24vw); min-width:180px; height:auto; }
 
 .main-nav ul{ display:flex; gap:30px; }
@@ -166,7 +166,7 @@ p{ margin:0 0 1em; color:var(--text-muted); }
 .main-nav a:hover{ color:var(--silver-light); }
 .main-nav a.active{ color:var(--silver-light); }
 
-.nav-cta{ display:flex; align-items:center; gap:18px; }
+.nav-cta{ display:flex; align-items:center; gap:18px; grid-column:3; grid-row:1; justify-self:end; }
 .nav-toggle{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
 .nav-toggle span{ display:block; width:24px; height:2px; background:var(--silver); margin:5px 0; }
 
