@@ -143,20 +143,24 @@ p{ margin:0 0 1em; color:var(--text-muted); }
    containing block for fixed-position descendants (the mobile nav
    panel), which breaks its full-height positioning on small screens */
 .nav-row{
+  --brand-edge-space:max(12px, env(safe-area-inset-left));
+  --header-side-space:max(calc(clamp(180px, 24vw, 240px) + 28px + var(--brand-edge-space)), 220px);
   position:relative;
   min-height:72px;
   padding:14px 0;
 }
 .brand{
   display:flex; align-items:center; flex:0 0 auto;
-  position:absolute; left:max(12px, env(safe-area-inset-left)); top:50%; transform:translateY(-50%); z-index:1;
+  position:absolute; left:var(--brand-edge-space); top:50%; transform:translateY(-50%); z-index:1;
+  padding:4px; border-radius:4px;
 }
 .nav-inner{
   display:grid;
-  grid-template-columns:max(calc(clamp(180px, 24vw, 240px) + 40px), 220px) 1fr max(calc(clamp(180px, 24vw, 240px) + 40px), 220px);
+  grid-template-columns:var(--header-side-space) 1fr var(--header-side-space);
   align-items:center;
   gap:28px; padding:0 28px; max-width:var(--container); margin:0 auto;
 }
+.brand:focus-visible{ outline:2px solid var(--red); outline-offset:4px; }
 .main-nav{ grid-column:2; justify-self:center; }
 .brand img{ width:min(240px, 24vw); min-width:180px; height:auto; }
 
