@@ -584,15 +584,13 @@ p{ margin:0 0 1em; color:var(--text-muted); }
 @media (max-width:760px){
   .site-header{ background-size:17px 17px; }
   .brand img{ width:150px; }
-  .nav-row{ grid-template-columns:minmax(0, 1fr) auto; gap:16px; padding-right:12px; }
-  .nav-inner{ grid-template-columns:1fr; justify-items:end; max-width:none; margin:0; }
-  .main-nav{ grid-column:1; justify-self:stretch; }
-  .nav-cta{ grid-column:1; justify-self:end; }
+  .nav-row{ grid-template-columns:minmax(0, 1fr) 0 auto; gap:16px; padding-right:12px; }
+  .nav-inner{ display:block; max-width:none; margin:0; }
+  .nav-cta{ display:none; }
   .main-nav{ position:fixed; inset:73px 0 0 30%; background:var(--paper); border-left:1px solid var(--line); transform:translateX(100%); transition:transform .25s ease; padding:30px; z-index:40; }
   .main-nav.open{ transform:translateX(0); }
   .main-nav ul{ flex-direction:column; gap:22px; }
-  .nav-toggle{ display:block; }
-  .nav-cta .btn-primary{ display:none; }
+  .nav-toggle{ display:block; grid-column:3; justify-self:end; }
   .zone-grid{ grid-template-columns:1fr; }
   .form-row{ grid-template-columns:1fr; }
   .checkbox-grid{ grid-template-columns:1fr; }
