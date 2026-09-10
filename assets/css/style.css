@@ -144,10 +144,13 @@ p{ margin:0 0 1em; color:var(--text-muted); }
    panel), which breaks its full-height positioning on small screens */
 .nav-row{
   display:flex; align-items:center; justify-content:space-between;
-  width:100%; box-sizing:border-box;
-  padding:14px 28px 14px 0;
+  padding:14px 28px;
+  max-width:var(--container); margin:0 auto;
 }
-.brand{ display:flex; align-items:center; flex:0 0 auto; }
+.brand{
+  display:flex; align-items:center; flex:0 0 auto;
+  margin-left:calc(((100vw - min(100vw, var(--container))) / -2) - 28px);
+}
 .brand img{ width:min(240px, 24vw); min-width:180px; height:auto; }
 
 .main-nav ul{ display:flex; gap:30px; }
