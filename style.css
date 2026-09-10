@@ -135,7 +135,7 @@ p{ margin:0 0 1em; color:var(--text-muted); }
   background-color:rgba(251,249,246,.96);
   background-image:
     linear-gradient(rgba(251,249,246,.84), rgba(251,249,246,.84)),
-    url('../img/header-pattern.svg');
+    url('assets/img/header-pattern.svg');
   background-position:center, top center;
   background-repeat:no-repeat, repeat;
   background-size:auto, 26px 26px;
