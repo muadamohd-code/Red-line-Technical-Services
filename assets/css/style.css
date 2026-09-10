@@ -169,7 +169,7 @@ p{ margin:0 0 1em; color:var(--text-muted); }
 
 /* status ticker: mimics an FACP panel readout */
 .status-bar{
-  background:transparent; color:var(--text-muted);
+  background:transparent; color:var(--silver-light);
   font-family:var(--mono); font-size:12px; letter-spacing:.06em;
   overflow:hidden; white-space:nowrap; position:relative;
   border-bottom:1px solid var(--line);
