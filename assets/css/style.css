@@ -588,7 +588,7 @@ p{ margin:0 0 1em; color:var(--text-muted); }
   .nav-inner{ grid-template-columns:1fr; justify-items:end; max-width:none; margin:0; }
   .main-nav{ grid-column:1; justify-self:stretch; }
   .nav-cta{ grid-column:1; justify-self:end; }
-  .main-nav{ position:fixed; inset:0 0 0 30%; top:73px; background:var(--paper); border-left:1px solid var(--line); transform:translateX(100%); transition:transform .25s ease; padding:30px; z-index:40; }
+  .main-nav{ position:fixed; inset:73px 0 0 30%; background:var(--paper); border-left:1px solid var(--line); transform:translateX(100%); transition:transform .25s ease; padding:30px; z-index:40; }
   .main-nav.open{ transform:translateX(0); }
   .main-nav ul{ flex-direction:column; gap:22px; }
   .nav-toggle{ display:block; }
