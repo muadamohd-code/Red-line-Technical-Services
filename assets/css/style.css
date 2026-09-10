@@ -150,7 +150,7 @@ p{ margin:0 0 1em; color:var(--text-muted); }
   display:flex; align-items:center; flex:0 0 auto;
   grid-column:1; grid-row:1;
 }
-.main-nav{ grid-column:1 / -1; grid-row:1; justify-self:center; }
+.main-nav{ grid-column:2; grid-row:1; justify-self:center; }
 .brand img{ width:min(240px, 24vw); min-width:180px; height:auto; }
 
 .main-nav ul{ display:flex; gap:30px; }
