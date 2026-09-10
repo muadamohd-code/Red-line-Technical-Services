@@ -148,7 +148,7 @@ p{ margin:0 0 1em; color:var(--text-muted); }
 }
 .brand{
   display:flex; align-items:center; flex:0 0 auto;
-  position:absolute; left:max(12px, env(safe-area-inset-left)); top:50%; transform:translateY(-50%);
+  position:absolute; left:max(12px, env(safe-area-inset-left)); top:50%; transform:translateY(-50%); z-index:1;
 }
 .nav-inner{
   display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
