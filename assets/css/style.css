@@ -144,9 +144,9 @@ p{ margin:0 0 1em; color:var(--text-muted); }
    panel), which breaks its full-height positioning on small screens */
 .nav-row{
   --brand-edge-space:max(12px, env(safe-area-inset-left));
-  --header-side-space:max(clamp(180px, 24vw, 240px), 220px);
+  --header-side-space:clamp(180px, 24vw, 240px);
   display:grid;
-  grid-template-columns:var(--header-side-space) minmax(0, 1fr) var(--header-side-space);
+  grid-template-columns:var(--header-side-space) minmax(0, 1fr);
   align-items:center;
   gap:28px;
   width:100%;
