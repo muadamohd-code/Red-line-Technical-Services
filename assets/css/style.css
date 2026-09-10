@@ -132,13 +132,11 @@ p{ margin:0 0 1em; color:var(--text-muted); }
    ============================================================ */
 .site-header{
   position:sticky; top:0; z-index:50;
-  background-color:rgba(251,249,246,.96);
-  background-image:
-    linear-gradient(rgba(251,249,246,.84), rgba(251,249,246,.84)),
-    url('../img/header-pattern.svg');
-  background-position:center, top center;
-  background-repeat:no-repeat, repeat;
-  background-size:auto, 26px 26px;
+  background-color:var(--pearl);
+  background-image:url('../img/header-pattern.svg');
+  background-position:top center;
+  background-repeat:repeat;
+  background-size:26px 26px;
   box-shadow:inset 0 -1px 0 var(--line);
 }
 /* note: intentionally no backdrop-filter here — it creates a new
@@ -171,7 +169,7 @@ p{ margin:0 0 1em; color:var(--text-muted); }
 
 /* status ticker: mimics an FACP panel readout */
 .status-bar{
-  background:rgba(246,243,238,.82); color:var(--text-muted);
+  background:transparent; color:var(--text-muted);
   font-family:var(--mono); font-size:12px; letter-spacing:.06em;
   overflow:hidden; white-space:nowrap; position:relative;
   border-bottom:1px solid var(--line);
