@@ -132,7 +132,11 @@ p{ margin:0 0 1em; color:var(--text-muted); }
    ============================================================ */
 .site-header{
   position:sticky; top:0; z-index:50;
-  background:rgba(251,249,246,.96);
+  background-color:rgba(251,249,246,.96);
+  background-image:url('../img/header-bg.svg');
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
   border-bottom:1px solid var(--line);
 }
 /* note: intentionally no backdrop-filter here — it creates a new
@@ -165,7 +169,7 @@ p{ margin:0 0 1em; color:var(--text-muted); }
 
 /* status ticker: mimics an FACP panel readout */
 .status-bar{
-  background:var(--paper); color:var(--text-muted);
+  background:rgba(246,243,238,.82); color:var(--text-muted);
   font-family:var(--mono); font-size:12px; letter-spacing:.06em;
   overflow:hidden; white-space:nowrap; position:relative;
   border-bottom:1px solid var(--line);
