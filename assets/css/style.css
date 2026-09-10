@@ -132,9 +132,9 @@ p{ margin:0 0 1em; color:var(--text-muted); }
    ============================================================ */
 .site-header{
   position:sticky; top:0; z-index:50;
-  background-color:rgba(251,249,246,.96);
+  background-color:rgba(250,249,247,.96);
   background-image:
-    linear-gradient(rgba(251,249,246,.84), rgba(251,249,246,.84)),
+    linear-gradient(rgba(250,249,247,.84), rgba(250,249,247,.84)),
     url('../img/header-pattern.svg');
   background-position:center, top center;
   background-repeat:no-repeat, repeat;
