@@ -144,8 +144,8 @@ p{ margin:0 0 1em; color:var(--text-muted); }
    panel), which breaks its full-height positioning on small screens */
 .nav-row{
   display:flex; align-items:center; justify-content:space-between;
-  padding:14px 28px;
-  max-width:var(--container); margin:0 auto;
+  width:100%; box-sizing:border-box;
+  padding:14px 28px 14px 0;
 }
 .brand{ display:flex; align-items:center; flex:0 0 auto; }
 .brand img{ width:min(240px, 24vw); min-width:180px; height:auto; }
