@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (formStatus) {
         formStatus.style.display = 'block';
         formStatus.style.color = '#3E7A44';
-        formStatus.textContent = 'Your request is ready. Connect the form to your Google Form endpoint to activate submissions.';
+        formStatus.textContent = form.getAttribute('data-success-message') || 'Your request is ready. Connect the form to your Google Form endpoint to activate submissions.';
       }
     });
   }
