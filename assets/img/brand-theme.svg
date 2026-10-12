@@ -45,8 +45,11 @@
     <rect x="508" y="515" width="598" height="4" opacity=".24"/>
   </g>
 
+  <!-- English text (default) -->
   <text x="508" y="202" fill="#b21f2b" font-size="112" font-weight="900" font-family="Arial Black, Segoe UI, sans-serif" letter-spacing="2">RED LINE</text>
   <text x="508" y="276" fill="#231f20" font-size="58" font-weight="700" font-family="Segoe UI, Arial, sans-serif">Fire Devices Fix LLC</text>
-  <text x="1114" y="468" text-anchor="end" fill="#a31919" font-size="140" font-weight="700" font-family="Tahoma, Arial, sans-serif">الخط الأحمر</text>
-  <text x="1114" y="590" text-anchor="end" fill="#231f20" font-size="72" font-weight="500" font-family="Tahoma, Arial, sans-serif">لتركيب أجهزة الإطفاء</text>
+  
+  <!-- Arabic text (adjusted to match English sizing) -->
+  <text x="1114" y="460" text-anchor="end" fill="#a31919" font-size="112" font-weight="700" font-family="Tahoma, Arial, sans-serif">الخط الأحمر</text>
+  <text x="1114" y="534" text-anchor="end" fill="#231f20" font-size="58" font-weight="500" font-family="Tahoma, Arial, sans-serif">لتركيب أجهزة الإطفاء</text>
 </svg>
