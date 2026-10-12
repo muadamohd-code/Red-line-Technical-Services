@@ -14,6 +14,66 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // building health check request modal
+  var isArabic = document.documentElement.lang === 'ar';
+  var floatingActions = document.createElement('div');
+  floatingActions.className = 'floating-actions';
+  floatingActions.innerHTML = isArabic
+    ? '<button class="health-check-trigger" type="button">فحص مجاني لصحة المبنى</button><a class="whatsapp-float" href="https://wa.me/971506872422" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب">واتساب</a>'
+    : '<button class="health-check-trigger" type="button">Free Building Health Check</button><a class="whatsapp-float" href="https://wa.me/971506872422" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">WhatsApp</a>';
+  floatingActions.insertAdjacentHTML('beforeend', isArabic
+    ? '<dialog class="health-check-modal" aria-labelledby="healthCheckTitle"><div class="health-check-header"><h2 id="healthCheckTitle">فحص مجاني لصحة المبنى</h2><button class="health-check-close" type="button" aria-label="إغلاق">×</button></div><p>أرسل بياناتك لنتواصل معك لتقييم احتياجات المبنى.</p><form id="healthCheckForm"><div class="health-check-fields"><div class="field"><label for="healthBuilding">اسم المبنى</label><input id="healthBuilding" name="Building Name" required></div><div class="field"><label for="healthProperty">نوع العقار</label><input id="healthProperty" name="Property Type" required></div><div class="field"><label for="healthEmirate">الإمارة</label><select id="healthEmirate" name="Emirate" required><option value="">اختر الإمارة</option><option>عجمان</option><option>الشارقة</option><option>دبي</option><option>أخرى</option></select></div><div class="field"><label for="healthContact">اسم جهة الاتصال</label><input id="healthContact" name="Contact Name" required></div><div class="field"><label for="healthPhone">رقم الهاتف</label><input id="healthPhone" name="Phone" type="tel" autocomplete="tel" required></div><div class="field"><label for="healthEmail">البريد الإلكتروني</label><input id="healthEmail" name="Email" type="email" autocomplete="email" required></div></div><button class="btn btn-primary" type="submit">إرسال الطلب</button><p class="health-check-status" role="status" aria-live="polite"></p></form></dialog>'
+    : '<dialog class="health-check-modal" aria-labelledby="healthCheckTitle"><div class="health-check-header"><h2 id="healthCheckTitle">Free Building Health Check</h2><button class="health-check-close" type="button" aria-label="Close">×</button></div><p>Share your details and we will contact you to assess your building needs.</p><form id="healthCheckForm"><div class="health-check-fields"><div class="field"><label for="healthBuilding">Building Name</label><input id="healthBuilding" name="Building Name" required></div><div class="field"><label for="healthProperty">Property Type</label><input id="healthProperty" name="Property Type" required></div><div class="field"><label for="healthEmirate">Emirate</label><select id="healthEmirate" name="Emirate" required><option value="">Select an emirate</option><option>Ajman</option><option>Sharjah</option><option>Dubai</option><option>Other</option></select></div><div class="field"><label for="healthContact">Contact Name</label><input id="healthContact" name="Contact Name" autocomplete="name" required></div><div class="field"><label for="healthPhone">Phone</label><input id="healthPhone" name="Phone" type="tel" autocomplete="tel" required></div><div class="field"><label for="healthEmail">Email</label><input id="healthEmail" name="Email" type="email" autocomplete="email" required></div></div><button class="btn btn-primary" type="submit">Request my free check</button><p class="health-check-status" role="status" aria-live="polite"></p></form></dialog>');
+  document.body.appendChild(floatingActions);
+
+  var healthDialog = floatingActions.querySelector('.health-check-modal');
+  var healthForm = floatingActions.querySelector('#healthCheckForm');
+  var healthTrigger = floatingActions.querySelector('.health-check-trigger');
+  healthTrigger.addEventListener('click', function () {
+    healthDialog.showModal();
+    healthDialog.querySelector('input').focus();
+  });
+  floatingActions.querySelector('.health-check-close').addEventListener('click', function () {
+    healthDialog.close();
+    healthTrigger.focus();
+  });
+  healthDialog.addEventListener('click', function (event) {
+    if (event.target === healthDialog) healthDialog.close();
+  });
+  healthForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var submitBtn = healthForm.querySelector('button[type="submit"]');
+    var status = healthForm.querySelector('.health-check-status');
+    var data = {};
+    new FormData(healthForm).forEach(function (value, key) { data[key] = value; });
+    data.Language = isArabic ? 'Arabic' : 'English';
+    data._subject = 'Free Building Health Check Request - Red Line Technical Services';
+    data._template = 'table';
+    data._captcha = 'false';
+    submitBtn.disabled = true;
+    status.textContent = '';
+
+    fetch('https://formsubmit.co/ajax/redline.aj@outlook.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
+    }).then(function () {
+      status.textContent = isArabic
+        ? 'شكرًا لك، تم إرسال طلبك بنجاح.'
+        : 'Thank you. Your request has been sent.';
+      healthForm.reset();
+    }).catch(function () {
+      status.textContent = isArabic
+        ? 'تعذر إرسال الطلب. يرجى المحاولة مرة أخرى أو التواصل معنا عبر واتساب.'
+        : 'Your request could not be sent. Please try again or contact us on WhatsApp.';
+    }).then(function () {
+      submitBtn.disabled = false;
+    });
+  });
+
   // scroll reveal (with fallback so content never stays permanently hidden)
   var revealEls = document.querySelectorAll('[data-reveal]');
   var showEl = function (el) {
